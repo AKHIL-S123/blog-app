@@ -14,6 +14,14 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "public")));
 
+
+
+  
+  
+  
+  
+  
+
 app.get("/", (req, res) => {
     console.log("Request received at /");
     res.send("Blog server is running!");
@@ -37,3 +45,8 @@ app.get("/blogs/:id", (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
+
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "./public", "index.html"));
+  });
+  

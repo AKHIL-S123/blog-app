@@ -5,13 +5,10 @@
   "main": "index.js",
   "scripts": {
     "setup-project": "npm i && cd client && npm i",
-    "server": "node index.js",
+    "server": "nodemon server",
     "client": "cd client && npm run dev",
-    "build-client": "cd client && npm install && npm run build",
-    "start": "npm run build-client && node index.js"
-  }
-  ,
-  
+    "dev": "concurrently --kill-others-on-fail \" npm run server\" \" npm run client\""
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
